@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#041a2f" />
+      <stop offset="60%" stop-color="#0c2748" />
+      <stop offset="100%" stop-color="#162450" />
+    </linearGradient>
+    <linearGradient id="neonPink" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff8bd5" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#ff3fb1" stop-opacity="0.65" />
+    </linearGradient>
+    <linearGradient id="neonCyan" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#45f5ff" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#1d9bff" stop-opacity="0.65" />
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#sky)" />
+
+  <g fill="#0b1f3e" opacity="0.9">
+    <rect x="80" y="420" width="160" height="520" />
+    <rect x="260" y="360" width="130" height="580" />
+    <rect x="430" y="480" width="120" height="460" />
+    <rect x="580" y="420" width="150" height="520" />
+    <rect x="760" y="340" width="200" height="600" />
+    <rect x="990" y="380" width="170" height="560" />
+    <rect x="1180" y="440" width="140" height="500" />
+    <rect x="1340" y="360" width="180" height="580" />
+    <rect x="1540" y="410" width="130" height="530" />
+    <rect x="1700" y="460" width="120" height="480" />
+  </g>
+
+  <g opacity="0.65">
+    <rect x="120" y="520" width="80" height="200" fill="url(#neonCyan)" />
+    <rect x="290" y="470" width="60" height="260" fill="url(#neonPink)" />
+    <rect x="820" y="420" width="70" height="320" fill="url(#neonCyan)" />
+    <rect x="1040" y="500" width="56" height="260" fill="url(#neonPink)" />
+    <rect x="1400" y="460" width="66" height="300" fill="url(#neonCyan)" />
+    <rect x="1600" y="490" width="58" height="260" fill="url(#neonPink)" />
+  </g>
+
+  <rect x="0" y="900" width="1920" height="180" fill="#091428" opacity="0.95" />
+  <rect x="0" y="870" width="1920" height="12" fill="#2b7bff" opacity="0.45" />
+
+  <g opacity="0.35" fill="#ffffff">
+    <circle cx="300" cy="220" r="6" />
+    <circle cx="520" cy="160" r="4" />
+    <circle cx="780" cy="200" r="5" />
+    <circle cx="1260" cy="150" r="7" />
+    <circle cx="1580" cy="210" r="5" />
+  </g>
+</svg>

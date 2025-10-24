@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="hall" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f0d4b4" />
+      <stop offset="50%" stop-color="#d9b48f" />
+      <stop offset="100%" stop-color="#c29d80" />
+    </linearGradient>
+    <linearGradient id="sunlight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff0dc" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#f5cda3" stop-opacity="0.75" />
+    </linearGradient>
+    <linearGradient id="uniform" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4b5c87" />
+      <stop offset="100%" stop-color="#2f3c66" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#hall)" />
+  <rect x="0" y="0" width="1920" height="1080" fill="url(#sunlight)" opacity="0.75" />
+
+  <g opacity="0.35" fill="#a37a53">
+    <rect x="0" y="280" width="1920" height="40" />
+    <rect x="0" y="660" width="1920" height="28" />
+    <rect x="0" y="940" width="1920" height="36" />
+  </g>
+
+  <g opacity="0.55" fill="#ffffff">
+    <rect x="180" y="180" width="70" height="400" />
+    <rect x="360" y="200" width="70" height="380" />
+    <rect x="540" y="220" width="70" height="360" />
+    <rect x="720" y="240" width="70" height="340" />
+    <rect x="900" y="260" width="70" height="320" />
+    <rect x="1080" y="240" width="70" height="340" />
+    <rect x="1260" y="220" width="70" height="360" />
+    <rect x="1440" y="200" width="70" height="380" />
+    <rect x="1620" y="180" width="70" height="400" />
+  </g>
+
+  <g opacity="0.4">
+    <rect x="0" y="520" width="1920" height="130" fill="#d8b18a" />
+    <rect x="0" y="650" width="1920" height="150" fill="#b48964" />
+  </g>
+
+  <g transform="translate(560 440)">
+    <path d="M120 0c32 0 60 18 72 44l56 112h-84l-44-96-44 96H92L44 44C56 18 88 0 120 0z" fill="url(#uniform)" opacity="0.85" />
+    <circle cx="120" cy="-24" r="46" fill="#f7d8c0" opacity="0.9" />
+  </g>
+
+  <g transform="translate(980 470)">
+    <path d="M120 0c34 0 62 20 72 46l50 106h-86l-36-84-48 84H78L32 46C42 18 84 0 120 0z" fill="url(#uniform)" opacity="0.8" />
+    <circle cx="120" cy="-26" r="44" fill="#f9ddc8" opacity="0.9" />
+  </g>
+
+  <rect x="0" y="980" width="1920" height="120" fill="#8c5f3a" opacity="0.7" />
+</svg>

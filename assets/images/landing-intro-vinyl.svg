@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Виниловый проигрыватель</title>
+  <desc id="desc">Неоновый проигрыватель с пластинкой на столе в киберпанковом стиле</desc>
+  <defs>
+    <linearGradient id="deckGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1b3a" />
+      <stop offset="60%" stop-color="#111c3a" />
+      <stop offset="100%" stop-color="#071024" />
+    </linearGradient>
+    <radialGradient id="vinylSheen" cx="52%" cy="45%" r="48%">
+      <stop offset="0%" stop-color="#2f4d82" stop-opacity="0.5" />
+      <stop offset="35%" stop-color="#1b2645" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#050b18" />
+    </radialGradient>
+    <radialGradient id="neonRing" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#67c6ff" stop-opacity="0.95" />
+      <stop offset="55%" stop-color="#4c9eed" stop-opacity="0.42" />
+      <stop offset="100%" stop-color="#1a3a7a" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="tonearmMetal" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6b768c" />
+      <stop offset="40%" stop-color="#b6c7e5" />
+      <stop offset="100%" stop-color="#62708a" />
+    </linearGradient>
+    <linearGradient id="buttonGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#66b6ff" />
+      <stop offset="100%" stop-color="#2d6bd8" />
+    </linearGradient>
+    <filter id="softBlur" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="32" />
+    </filter>
+  </defs>
+  <rect width="1280" height="720" fill="#030816" />
+  <g filter="url(#softBlur)">
+    <ellipse cx="430" cy="580" rx="340" ry="120" fill="#2d5aa8" opacity="0.22" />
+    <ellipse cx="900" cy="610" rx="300" ry="100" fill="#3f1f7a" opacity="0.18" />
+  </g>
+  <rect x="160" y="140" width="960" height="480" rx="42" fill="url(#deckGlow)" stroke="#284a92" stroke-width="4" />
+  <rect x="180" y="160" width="920" height="440" rx="34" fill="#08142c" stroke="#1a3b82" stroke-width="3" />
+  <circle cx="520" cy="380" r="210" fill="url(#vinylSheen)" stroke="#0f1c35" stroke-width="4" />
+  <circle cx="520" cy="380" r="60" fill="#0c1526" />
+  <circle cx="520" cy="380" r="24" fill="#1f9cff" opacity="0.85" />
+  <circle cx="520" cy="380" r="160" fill="url(#neonRing)" opacity="0.9" />
+  <path d="M920 240c54 0 98 44 98 98s-44 98-98 98-98-44-98-98 44-98 98-98z" fill="#0c1426" stroke="#2a4b92" stroke-width="4" />
+  <path d="M874 236h92c10 0 18 8 18 18v64c0 10-8 18-18 18h-92c-10 0-18-8-18-18v-64c0-10 8-18 18-18z" fill="#101b33" stroke="#2d4f9d" stroke-width="3" />
+  <rect x="856" y="290" width="48" height="26" rx="6" fill="#1c2b52" />
+  <rect x="928" y="290" width="48" height="26" rx="6" fill="#1c2b52" />
+  <rect x="856" y="328" width="120" height="18" rx="9" fill="#1c2b52" />
+  <path d="M670 228l180-36c12-2 23 5 25 17l20 120c2 12-5 23-17 25l-90 16" fill="none" stroke="url(#tonearmMetal)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="868" cy="350" r="18" fill="#1c2b52" stroke="#3a6de0" stroke-width="4" />
+  <rect x="890" y="446" width="140" height="52" rx="14" fill="rgba(18,32,60,0.8)" stroke="#2f57a6" stroke-width="3" />
+  <rect x="910" y="460" width="100" height="28" rx="14" fill="url(#buttonGlow)" />
+  <text x="960" y="482" fill="#041022" font-family="Montserrat, 'Segoe UI', sans-serif" font-size="18" font-weight="600" text-anchor="middle">PLAY</text>
+  <path d="M260 508h240c14 0 26 12 26 26v26c0 14-12 26-26 26H260c-14 0-26-12-26-26v-26c0-14 12-26 26-26z" fill="rgba(10,26,52,0.86)" stroke="#2250a0" stroke-width="3" />
+  <text x="380" y="562" fill="#67b5ff" font-family="Montserrat, 'Segoe UI', sans-serif" font-size="20" letter-spacing="0.28em" text-anchor="middle">RSC AUDIO</text>
+</svg>
