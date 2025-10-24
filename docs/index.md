@@ -9,7 +9,7 @@ title: RSC — начало истории
 
   <div class="landing__overlay">
     <div class="vn-frame">
-      <span class="vn-frame__header">RSC // Briefing</span>
+      <span class="vn-frame__header">RSC // BRIEFING</span>
       <div
         class="vn-frame__body"
         data-typewriter

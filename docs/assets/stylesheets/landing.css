@@ -1,11 +1,12 @@
 :root {
-  --landing-text-color: #f5f7ff;
-  --landing-border: rgba(255, 255, 255, 0.25);
-  --landing-button-bg: rgba(66, 135, 245, 0.9);
-  --landing-button-bg-hover: rgba(66, 135, 245, 1);
-  --landing-button-secondary-bg: rgba(21, 29, 51, 0.82);
-  --landing-background-primary: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAAB4CAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAAGcElEQVR4nO3dQU7jMBgG4N9/Y4USCkFI3Ir2nOi9BN8ZTvgIGg1vm/tT0kqauqpirP9mBn93r7v7W9Xv13V3dXYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgCL6X7E3xGXSzXTHXb17z6IrZS7n1y9vsP+O2tFq9XK/XiDpc873I/vT+y3mOskvXy/ViDpfvN7k2uJ9lLsefHuw/47a0Wr1cr9eIOlzzvcz+9P7Leb6yS9fL9WIOl+83uTa4n2Uu558e7D/jtrRavVyv14g6XPO9zP70/st5jrJL18v1Yg6X7ze5NrifZS7nnx7sP+O2tFq9XK/XiDpc873I/vT+y3mOskvXy/ViDpfvN7k2uJ9lLsefHuw/47a0Wr1cr9eIOlzzvcz+9P7Leb6yS9fL9WIOl+83uTa4n2Uu558e7D/jtrRavVyv14g6XPO9zP70/st5jrJL18v1Yg6X7ze5NrifZS7nnx7sP+O2tFq9XK/XiDpc873I/vT+y3mOskvXy/ViDpfvN7k2uJ9lLsefHuw/47a0Wr1cr9eIOlzzvcz+9P7Leb6yS9fL9WIOl+83uTa4n2Uu558e7D/jtrRavVyv14g6XPO9zP70/st5jrJL18v1Yg6X7ze5NrifZS7nnx7sP+O2tFq9XK/XiDpc873I/vT+y3mOskvXy/ViDpfvN7k2uJ9lLsefHuw/47a0Wr1cr9eIOlzzvcz+9P7Leb6yS9fL9WIOl+83uTa4n2Uu558e7D/jtrRavVyv14g6XPO9zP70/st5jrJL18v1Yg6X7ze5NrifZS7nnx7sP+O2tFq9XK/XiDpc873I/vT+y3mOskvXy/ViDpfvN7k2uJ9lLsefHuw/47a0Wr1cr9eIOlzzvcz+9P7Leb6yS9fL9WIOl+83uTa4n2Uu558e7D/jtrRavVyv14g6XPO9zP70/st5jrJL18v1Yg6X7ze5NrifZS7nnx7sP+O2tFq9XK/XiDpc873I/vT+y3mOskvXy/ViDpfvN7k2uJ9lLsefHuw/47a0Wr1cr9eIOlzzvcz+9P7Leb6yS9fL9WIOl+83uTa4n2Uu558e7D/jtrRavVyv14g6XPO9zP70/st5jrJL18v1Yg6X7ze5NrifZS7nnx7sP+O2tFq9XK/XiDpc873I/vT+y3mOskvXy/ViDpfvN7k2uJ9lLsefHuw/47a0Wr1cr9eIOlzzvcz+9P7Leb6yS9fL9WIOl+83uTa4n2Uu558e7D/jtrRavVyv14g6XPO9zP70/st5jrJL18v1Yg6X7ze5NrifZS7nnx7sP+O2tFq9XK/XiDpc873I/vT+y3mOskvXy/ViDpfvN7k2uJ9lLsefHuw/47a0Wr1cr9eIOlzzvcz+9P7Leb6yS9fL9WIOl+83uTa4n2Uu558e7D/jtrRavVyv14g6XPO9zP70/st5jrJL18v1Yg6X7ze5NrifZS7nnx7sP+O2tFq9XK/XiDpc873I/vT+y3mOskvXy/ViDpfvN7k2uJ9lLsefHuw/47a0Wr1cr9eIOlzzvcxv+yv8AOKqvtoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4RfsfwFCKqXSh+CRCAAAAAElFTkSuQmCC");
-  --landing-background-secondary: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAAB4CAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAAGcElEQVR4nO3dQU7jMBgG4N9/Y4USCkFI3Ir2nOi9BN8ZTvgIGg1vm/tT0kqauqpirP9mBn93r7v7W9Xv13V3dXYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgCL6X7E3xGXSzXTHXb17z6IrZS7n1y9vsP+O2tFq9XK/XiDpc873I/vT+y3mOskvXy/ViDpfvN7k2uJ9lLsefHuw/47a0Wr1cr9eIOlzzvcz+9P7Leb6yS9fL9WIOl+83uTa4n2Uu558e7D/jtrRavVyv14g6XPO9zP70/st5jrJL18v1Yg6X7ze5NrifZS7nnx7sP+O2tFq9XK/XiDpc873I/vT+y3mOskvXy/ViDpfvN7k2uJ9lLsefHuw/47a0Wr1cr9eIOlzzvcz+9P7Leb6yS9fL9WIOl+83uTa4n2Uu558e7D/jtrRavVyv14g6XPO9zP70/st5jrJL18v1Yg6X7ze5NrifZS7nnx7sP+O2tFq9XK/XiDpc873I/vT+y3mOskvXy/ViDpfvN7k2uJ9lLsefHuw/47a0Wr1cr9eIOlzzvcz+9P7Leb6yS9fL9WIOl+83uTa4n2Uu558e7D/jtrRavVyv14g6XPO9zP70/st5jrJL18v1Yg6X7ze5NrifZS7nnx7sP+O2tFq9XK/XiDpc873I/vT+y3mOskvXy/ViDpfvN7k2uJ9lLsefHuw/47a0Wr1cr9eIOlzzvcz+9P7Leb6yS9fL9WIOl+83uTa4n2Uu558e7D/jtrRavVyv14g6XPO9zP70/st5jrJL18v1Yg6X7ze5NrifZS7nnx7sP+O2tFq9XK/XiDpc873I/vT+y3mOskvXy/ViDpfvN7k2uJ9lLsefHuw/47a0Wr1cr9eIOlzzvcz+9P7Leb6yS9fL9WIOl+83uTa4n2Uu558e7D/jtrRavVyv14g6XPO9zP70/st5jrJL18v1Yg6X7ze5NrifZS7nnx7sP+O2tFq9XK/XiDpc873I/vT+y3mOskvXy/ViDpfvN7k2uJ9lLsefHuw/47a0Wr1cr9eIOlzzvcz+9P7Leb6yS9fL9WIOl+83uTa4n2Uu558e7D/jtrRavVyv14g6XPO9zP70/st5jrJL18v1Yg6X7ze5NrifZS7nnx7sP+O2tFq9XK/XiDpc873I/vT+y3mOskvXy/ViDpfvN7k2uJ9lLsefHuw/47a0Wr1cr9eIOlzzvcz+9P7Leb6yS9fL9WIOl+83uTa4n2Uu558e7D/jtrRavVyv14g6XPO9zP70/st5jrJL18v1Yg6X7ze5NrifZS7nnx7sP+O2tFq9XK/XiDpc873I/vT+y3mOskvXy/ViDpfvN7k2uJ9lLsefHuw/47a0Wr1cr9eIOlzzvcz+9P7Leb6yS9fL9WIOl+83uTa4n2Uu558e7D/jtrRavVyv14g6XPO9zP70/st5jrJL18v1Yg6X7ze5NrifZS7nnx7sP+O2tFq9XK/XiDpc873I/vT+y3mOskvXy/ViDpfvN7k2uJ9lLsefHuw/47a0Wr1cr9eIOlzzvcxv+yv8AOKqvtoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4RfsfwFCKqXSh+CRCAAAAAElFTkSuQmCC");
+  --landing-font: "Montserrat", "Segoe UI", sans-serif;
+  --landing-text-color: #f4f6ff;
+  --landing-border: rgba(255, 255, 255, 0.22);
+  --landing-button-bg: rgba(56, 122, 255, 0.92);
+  --landing-button-bg-hover: rgba(78, 148, 255, 1);
+  --landing-button-secondary-bg: rgba(18, 26, 48, 0.86);
+  --landing-background-primary: url("../images/landing-stage-one.svg");
+  --landing-background-secondary: url("../images/landing-stage-two.svg");
 }
 
 html,
@@ -20,6 +21,7 @@ body,
 
 body {
   background: #01040f;
+  font-family: var(--landing-font);
 }
 
 .md-header,
@@ -55,7 +57,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(2rem, 4vw, 3.5rem);
+  padding: clamp(1.6rem, 4vw, 3.2rem);
   overflow: hidden;
   color: var(--landing-text-color);
 }
@@ -65,7 +67,7 @@ body {
   position: absolute;
   inset: 0;
   background: radial-gradient(circle at 20% 20%, rgba(89, 152, 255, 0.25), transparent 55%),
-    radial-gradient(circle at 85% 35%, rgba(255, 151, 208, 0.18), transparent 45%);
+    radial-gradient(circle at 80% 30%, rgba(255, 151, 208, 0.18), transparent 45%);
   mix-blend-mode: screen;
   pointer-events: none;
   z-index: -1;
@@ -75,11 +77,11 @@ body {
   position: fixed;
   inset: 0;
   background-size: cover;
-  background-position: center;
-  filter: brightness(0.75) saturate(110%);
-  transform: scale(1.06);
-  animation: landing-pan 160s linear infinite;
-  transition: opacity 1.6s ease-in-out;
+  background-position: 50% 50%;
+  filter: brightness(0.85) saturate(110%);
+  transform: scale(1.04);
+  animation: landing-pan 140s linear infinite;
+  transition: opacity 1.4s ease-in-out;
   z-index: -3;
 }
 
@@ -87,7 +89,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(5, 7, 18, 0.25) 0%, rgba(2, 5, 14, 0.8) 65%, rgba(1, 4, 12, 0.95) 100%);
+  background: linear-gradient(180deg, rgba(5, 7, 18, 0.32) 0%, rgba(2, 5, 14, 0.82) 65%, rgba(1, 4, 12, 0.92) 100%);
 }
 
 .landing__background--primary {
@@ -110,7 +112,8 @@ body {
 
 .landing__overlay {
   position: relative;
-  width: min(1260px, 92vw);
+  width: min(1220px, 90vw);
+  min-height: clamp(26rem, 62vh, 34rem);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -118,18 +121,18 @@ body {
 
 .vn-frame {
   position: relative;
-  background: linear-gradient(180deg, rgba(6, 10, 24, 0.82), rgba(7, 12, 28, 0.94));
-  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(5, 9, 20, 0.88), rgba(8, 13, 30, 0.94));
+  border-radius: 24px;
   border: 1px solid var(--landing-border);
-  padding: clamp(2.2rem, 3vw, 2.8rem) clamp(2.6rem, 4.5vw, 3.6rem);
-  box-shadow: 0 18px 48px rgba(4, 10, 26, 0.65);
-  backdrop-filter: blur(16px);
+  padding: clamp(1.8rem, 3.4vw, 2.6rem) clamp(2.3rem, 4.6vw, 3.4rem);
+  box-shadow: 0 22px 50px rgba(3, 8, 24, 0.7);
+  backdrop-filter: blur(18px);
   display: flex;
   flex-direction: column;
-  gap: clamp(1.6rem, 3vw, 2.4rem);
-  min-height: clamp(18rem, 52vh, 28rem);
+  gap: clamp(1.3rem, 2.6vw, 2rem);
+  min-height: clamp(20rem, 58vh, 32rem);
   width: 100%;
-  max-width: min(1100px, 100%);
+  max-width: min(1020px, 86vw);
 }
 
 .vn-frame::before,
@@ -137,39 +140,42 @@ body {
   content: "";
   position: absolute;
   inset: -18px;
-  border-radius: 26px;
-  border: 1px solid rgba(162, 206, 255, 0.14);
+  border-radius: 32px;
+  border: 1px solid rgba(162, 206, 255, 0.16);
   pointer-events: none;
 }
 
 .vn-frame::after {
   inset: -34px;
-  border: 1px solid rgba(37, 68, 135, 0.55);
-  opacity: 0.35;
+  border: 1px solid rgba(46, 90, 175, 0.5);
+  opacity: 0.4;
 }
 
 .vn-frame__header {
   position: absolute;
-  top: clamp(-2.6rem, -4vw, -2.2rem);
-  left: clamp(2.2rem, 6vw, 3.2rem);
-  padding: 0.55rem 1.4rem;
-  background: linear-gradient(90deg, rgba(66, 135, 245, 0.85), rgba(129, 178, 255, 0.58));
+  top: clamp(-2.6rem, -4vw, -2.1rem);
+  left: clamp(2.2rem, 6vw, 3.1rem);
+  padding: 0.5rem 1.6rem;
+  background: linear-gradient(90deg, rgba(66, 135, 245, 0.9), rgba(131, 182, 255, 0.62));
   color: #060910;
-  font-size: 0.85rem;
-  letter-spacing: 0.3em;
+  font-size: 0.78rem;
+  letter-spacing: 0.36em;
   text-transform: uppercase;
   border-radius: 999px;
   font-weight: 700;
-  box-shadow: 0 8px 18px rgba(38, 94, 205, 0.45);
+  box-shadow: 0 8px 20px rgba(38, 94, 205, 0.5);
 }
 
 .vn-frame__body {
-  font-size: clamp(0.95rem, 1.8vw, 1.2rem);
-  line-height: 1.78;
-  letter-spacing: 0.015em;
+  font-size: clamp(0.84rem, 1.45vw, 1.02rem);
+  line-height: 1.68;
+  letter-spacing: 0.01em;
   color: var(--landing-text-color);
-  min-height: clamp(11rem, 24vw, 14rem);
+  min-height: clamp(12rem, 32vh, 16rem);
   flex: 1 1 auto;
+  margin-inline: auto;
+  max-width: 90ch;
+  overflow-wrap: anywhere;
 }
 
 .vn-block__cursor {
@@ -195,11 +201,13 @@ body {
 
 .landing__actions {
   display: flex;
-  justify-content: flex-end;
-  gap: clamp(0.75rem, 2vw, 1.2rem);
+  justify-content: center;
+  gap: clamp(0.9rem, 2vw, 1.4rem);
   flex-wrap: wrap;
-  align-self: flex-end;
-  margin-top: auto;
+  align-self: center;
+  width: 100%;
+  max-width: 620px;
+  margin-top: clamp(0.5rem, 2vw, 1.2rem);
 }
 
 .landing__bgm {
@@ -210,9 +218,9 @@ body {
   position: relative;
   border: none;
   border-radius: 999px;
-  padding: 0.8rem 2.3rem;
-  font-size: 0.9rem;
-  letter-spacing: 0.16em;
+  padding: 0.7rem 2.2rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 600;
   cursor: pointer;
@@ -268,10 +276,10 @@ body {
 
 @keyframes landing-pan {
   from {
-    transform: scale(1.06) translate3d(0, 0, 0);
+    transform: scale(1.04) translate3d(0, 0, 0);
   }
   to {
-    transform: scale(1.06) translate3d(-4%, 0, 0);
+    transform: scale(1.04) translate3d(-3%, 0, 0);
   }
 }
 
@@ -281,31 +289,30 @@ body {
   }
 
   .landing {
-    padding: clamp(1.5rem, 6vw, 2.5rem);
+    padding: clamp(1.2rem, 6vw, 2.3rem);
   }
 
   .vn-frame {
-    min-height: unset;
+    min-height: clamp(18rem, 68vh, 28rem);
+    max-width: min(94vw, 720px);
   }
 }
 
 @media (max-width: 720px) {
   .landing__overlay {
     width: 100%;
+    min-height: unset;
   }
 
   .vn-frame {
-    padding: clamp(1.6rem, 6vw, 2.2rem);
+    padding: clamp(1.4rem, 6vw, 2rem);
+    border-radius: 20px;
   }
 
   .vn-frame__header {
     position: static;
     display: inline-block;
     margin-bottom: 1.2rem;
-  }
-
-  .landing__actions {
-    justify-content: center;
   }
 
   .landing__button {
