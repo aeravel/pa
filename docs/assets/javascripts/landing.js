@@ -15,6 +15,14 @@
   const advanceButton = landing.querySelector('[data-action="advance"]');
   const exploreButton = landing.querySelector('[data-action="explore"]');
   const exploreTarget = document.querySelector('#future-content');
+  const docsSection = landing.querySelector('[data-role="docs"]');
+  const docsNavButtons = docsSection
+    ? Array.from(docsSection.querySelectorAll('[data-docs-target]'))
+    : [];
+  const docsPanels = docsSection
+    ? Array.from(docsSection.querySelectorAll('[data-docs-panel]'))
+    : [];
+  const glitchLayer = landing.querySelector('[data-role="glitch"]');
   const bgm = landing.querySelector('[data-role="bgm"]');
   const headerFrame = landing.querySelector('[data-header]');
   const headerSlot = landing.querySelector('[data-slot="header"]');
@@ -391,6 +399,81 @@
     playStage(stageTwoText, exploreButton);
   }
 
+  function normalizeDocsId(value) {
+    return typeof value === 'string' ? value.trim().toLowerCase() : '';
+  }
+
+  function setActiveDocsPanel(targetId) {
+    if (!docsSection) return;
+
+    const normalized = normalizeDocsId(targetId);
+    let resolvedId = normalized;
+
+    if (!resolvedId) {
+      const fallbackButton = docsNavButtons.find((button) => button.classList.contains('is-active')) || docsNavButtons[0];
+      resolvedId = fallbackButton ? normalizeDocsId(fallbackButton.dataset.docsTarget) : '';
+    }
+
+    docsNavButtons.forEach((button) => {
+      const id = normalizeDocsId(button.dataset.docsTarget);
+      const isActive = id === resolvedId;
+      button.classList.toggle('is-active', isActive);
+      button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    docsPanels.forEach((panel) => {
+      const id = normalizeDocsId(panel.dataset.docsPanel);
+      const isActive = id === resolvedId;
+      panel.classList.toggle('is-active', isActive);
+      if (isActive) {
+        panel.removeAttribute('hidden');
+      } else {
+        panel.setAttribute('hidden', '');
+      }
+    });
+  }
+
+  function prepareDocs() {
+    if (!docsSection) return;
+
+    setActiveDocsPanel();
+
+    docsNavButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const target = button.dataset.docsTarget;
+        setActiveDocsPanel(target);
+      });
+    });
+  }
+
+  function triggerGlitchTransition() {
+    const duration = 900;
+
+    return new Promise((resolve) => {
+      if (!glitchLayer) {
+        window.setTimeout(resolve, 200);
+        return;
+      }
+
+      glitchLayer.classList.remove('is-active');
+      void glitchLayer.offsetWidth;
+      glitchLayer.classList.add('is-active');
+
+      window.setTimeout(() => {
+        glitchLayer.classList.remove('is-active');
+        resolve();
+      }, duration);
+    });
+  }
+
+  function showDocsSection() {
+    if (!docsSection) return;
+    docsSection.hidden = false;
+    window.requestAnimationFrame(() => {
+      docsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
   function initialize() {
     playStage(stageOneText, advanceButton);
   }
@@ -403,10 +486,19 @@
     });
   }
 
-  if (exploreButton && exploreTarget) {
+  if (exploreButton) {
     exploreButton.addEventListener('click', () => {
-      exploreTarget.hidden = false;
-      exploreTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (docsSection) {
+        exploreButton.classList.add('is-hidden');
+        exploreButton.setAttribute('disabled', 'disabled');
+        landing.setAttribute('data-stage', 'docs');
+        triggerGlitchTransition().then(() => {
+          showDocsSection();
+        });
+      } else if (exploreTarget) {
+        exploreTarget.hidden = false;
+        exploreTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
       startBgm();
     });
   }
@@ -478,6 +570,8 @@
   }
 
   const introReady = setupIntro();
+
+  prepareDocs();
 
   const configPromise = configUrl ? fetchConfig(configUrl).then(applyConfig).catch(() => {}) : Promise.resolve();
 

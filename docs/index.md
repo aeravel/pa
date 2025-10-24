@@ -24,10 +24,25 @@ title: RSC — начало истории
     </button>
   </div>
   <div class="landing__background landing__background--primary" aria-hidden="true">
-    <img src="assets/images/landing-stage-one.svg" alt="" loading="eager" data-default-src="assets/images/landing-stage-one.svg" />
+    <img
+      src="assets/images/landing-stage-one.svg"
+      alt=""
+      loading="eager"
+      data-default-src="assets/images/landing-stage-one.svg"
+    />
   </div>
   <div class="landing__background landing__background--secondary" aria-hidden="true">
-    <img src="assets/images/landing-stage-two.svg" alt="" loading="lazy" data-default-src="assets/images/landing-stage-two.svg" />
+    <img
+      src="assets/images/landing-stage-two.svg"
+      alt=""
+      loading="lazy"
+      data-default-src="assets/images/landing-stage-two.svg"
+    />
+  </div>
+  <div class="landing__glitch" data-role="glitch" aria-hidden="true">
+    <span class="landing__glitch-layer landing__glitch-layer--a"></span>
+    <span class="landing__glitch-layer landing__glitch-layer--b"></span>
+    <span class="landing__glitch-layer landing__glitch-layer--c"></span>
   </div>
   <audio
     class="landing__bgm"
@@ -71,10 +86,39 @@ title: RSC — начало истории
   </div>
 </div>
 
-<section id="future-content" hidden>
-  <h2>Следующий шаг</h2>
-  <p>
-    Здесь появятся дополнительные сведения об академии RSC, героях и миссиях. Кнопка «Я хочу знать больше»
-    плавно пролистает к этому блоку, как только он будет заполнен.
-  </p>
+<section id="future-content" class="landing-docs" data-role="docs" hidden>
+  <div class="landing-docs__frame">
+    <aside class="landing-docs__nav" aria-label="Разделы досье RSC">
+      <button type="button" class="landing-docs__tab is-active" data-docs-target="synopsis" aria-selected="true">
+        Синопсис
+      </button>
+      <button type="button" class="landing-docs__tab" data-docs-target="prologue" aria-selected="false">
+        Пролог
+      </button>
+      <button type="button" class="landing-docs__tab" data-docs-target="world" aria-selected="false">
+        Мир
+      </button>
+      <button type="button" class="landing-docs__tab" data-docs-target="characters" aria-selected="false">
+        Персонажи
+      </button>
+    </aside>
+    <div class="landing-docs__content">
+      <article class="landing-docs__panel is-active" data-docs-panel="synopsis">
+        <h2>Синопсис</h2>
+        <p>Здесь должен быть синопсис.</p>
+      </article>
+      <article class="landing-docs__panel" data-docs-panel="prologue" hidden>
+        <h2>Пролог</h2>
+        <p>Здесь должен быть пролог.</p>
+      </article>
+      <article class="landing-docs__panel" data-docs-panel="world" hidden>
+        <h2>Мир</h2>
+        <p>Здесь должно быть описание мира.</p>
+      </article>
+      <article class="landing-docs__panel" data-docs-panel="characters" hidden>
+        <h2>Персонажи</h2>
+        <p>Здесь должно быть описание персонажей.</p>
+      </article>
+    </div>
+  </div>
 </section>
