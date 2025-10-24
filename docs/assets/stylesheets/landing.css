@@ -50,17 +50,33 @@ body {
   display: flex;
 }
 
+body.landing-page .md-content__inner {
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 3.6rem);
+}
+
 .landing {
   position: relative;
   isolation: isolate;
   min-height: 100vh;
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: clamp(2rem, 5vw, 3.4rem);
   padding: clamp(1.6rem, 4vw, 3.2rem);
   overflow: hidden;
   color: var(--landing-text-color);
+}
+
+.landing[data-stage="docs"] {
+  justify-content: flex-start;
+  gap: clamp(2.4rem, 6vw, 3.8rem);
+  padding-top: clamp(3rem, 8vw, 5rem);
+  padding-bottom: clamp(2rem, 6vw, 4rem);
+  overflow: visible;
 }
 
 .landing::after {
@@ -398,8 +414,7 @@ body {
   flex-direction: column;
   gap: clamp(1.3rem, 2.6vw, 2rem);
   min-height: clamp(20rem, 58vh, 32rem);
-  width: 100%;
-  max-width: min(1020px, 86vw);
+  width: min(1180px, 92vw);
   overflow: hidden;
   clip-path: var(--vn-frame-shape);
 }
@@ -454,8 +469,8 @@ body {
   color: var(--landing-text-color);
   min-height: clamp(12rem, 32vh, 16rem);
   flex: 1 1 auto;
-  margin-inline: auto;
-  max-width: 90ch;
+  width: 100%;
+  margin-inline: 0;
   overflow-wrap: anywhere;
 }
 
@@ -648,6 +663,10 @@ body {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.landing .landing-docs {
+  margin-top: 0;
 }
 
 .landing-docs.is-visible {

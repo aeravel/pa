@@ -2,6 +2,10 @@
   const landing = document.querySelector('.landing[data-stage]');
   if (!landing) return;
 
+  if (document.body) {
+    document.body.classList.add('landing-page');
+  }
+
   const introOverlay = landing.querySelector('[data-role="intro"]');
   const introTrigger = landing.querySelector('[data-role="intro-trigger"]');
   const introImage = landing.querySelector('[data-role="intro-image"]');
@@ -15,7 +19,7 @@
   const advanceButton = landing.querySelector('[data-action="advance"]');
   const exploreButton = landing.querySelector('[data-action="explore"]');
   const exploreTarget = document.querySelector('#future-content');
-  const docsSection = landing.querySelector('[data-role="docs"]');
+  const docsSection = document.querySelector('[data-role="docs"]');
   const overlay = landing.querySelector('.landing__overlay');
   const docsNavButtons = docsSection
     ? Array.from(docsSection.querySelectorAll('[data-docs-target]'))
@@ -470,6 +474,7 @@
   function showDocsSection() {
     if (!docsSection) return;
     docsSection.hidden = false;
+    docsSection.removeAttribute('hidden');
     docsSection.classList.add('is-visible');
     docsSection.removeAttribute('aria-hidden');
     window.requestAnimationFrame(() => {
