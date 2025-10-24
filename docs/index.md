@@ -5,7 +5,7 @@ title: RSC — начало истории
 <div class="landing" data-stage="one">
   <div class="landing__background landing__background--primary" aria-hidden="true"></div>
   <div class="landing__background landing__background--secondary" aria-hidden="true"></div>
-  <audio class="landing__bgm" data-role="bgm" data-src="assets/audio/landing-theme.mp3" data-volume="0.6" loop preload="auto"></audio>
+  <audio class="landing__bgm" data-role="bgm" data-src="assets/audio/intro.mp3" data-volume="0.6" loop preload="auto"></audio>
 
   <div class="landing__overlay">
     <div class="vn-frame">
