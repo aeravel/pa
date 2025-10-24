@@ -4,7 +4,12 @@
   "audio": {
     "src": "assets/audio/landing-theme.mp3",
     "volume": 0.6,
-    "autoplay": true
+    "autoplay": false
+  },
+  "intro": {
+    "image": "assets/images/landing-intro-vinyl.svg",
+    "label": "Включить проигрыватель",
+    "hint": "Наведите и нажмите, чтобы музыка зазвучала"
   },
   "buttons": {
     "advance": "Подробнее об RSC",

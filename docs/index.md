@@ -2,7 +2,27 @@
 title: RSC — начало истории
 ---
 
-<div class="landing" data-stage="one" data-config="assets/data/landing.json" data-cache-buster="1">
+<div class="landing" data-stage="intro" data-config="assets/data/landing.json" data-cache-buster="1">
+  <div class="landing__intro" data-role="intro">
+    <button
+      type="button"
+      class="landing__intro-trigger"
+      data-role="intro-trigger"
+      aria-label="Запустить проигрыватель"
+    >
+      <span class="landing__intro-figure">
+        <img
+          src="assets/images/landing-intro-vinyl.svg"
+          data-role="intro-image"
+          data-default-src="assets/images/landing-intro-vinyl.svg"
+          alt="Виниловый проигрыватель на столе"
+          loading="eager"
+        />
+      </span>
+      <span class="landing__intro-label" data-slot="intro-label">Включить проигрыватель</span>
+      <span class="landing__intro-hint" data-slot="intro-hint">Наведите и нажмите, чтобы музыка зазвучала</span>
+    </button>
+  </div>
   <div class="landing__background landing__background--primary" aria-hidden="true">
     <img src="assets/images/landing-stage-one.svg" alt="" loading="eager" data-default-src="assets/images/landing-stage-one.svg" />
   </div>

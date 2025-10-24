@@ -2,6 +2,11 @@
   const landing = document.querySelector('.landing[data-stage]');
   if (!landing) return;
 
+  const introOverlay = landing.querySelector('[data-role="intro"]');
+  const introTrigger = landing.querySelector('[data-role="intro-trigger"]');
+  const introImage = landing.querySelector('[data-role="intro-image"]');
+  const introLabelSlot = landing.querySelector('[data-slot="intro-label"]');
+  const introHintSlot = landing.querySelector('[data-slot="intro-hint"]');
   const textBlock = landing.querySelector('[data-typewriter]');
   if (!textBlock) return;
 
@@ -23,6 +28,7 @@
 
   applyCacheBusterToBackdrop(primaryBackdrop);
   applyCacheBusterToBackdrop(secondaryBackdrop);
+  applyCacheBusterToBackdrop(introImage);
 
   if (!stageOneText) return;
 
@@ -83,6 +89,13 @@
     button.textContent = trimmed;
   }
 
+  function setSlotText(slot, value) {
+    if (!slot || typeof value !== 'string') return;
+    const trimmed = value.trim();
+    if (!trimmed) return;
+    slot.textContent = trimmed;
+  }
+
   function applyHeader(value) {
     if (typeof value !== 'string') return;
     const trimmed = value.trim();
@@ -107,6 +120,7 @@
       landing.dataset.cacheBuster = cacheKey;
       applyCacheBusterToBackdrop(primaryBackdrop);
       applyCacheBusterToBackdrop(secondaryBackdrop);
+      applyCacheBusterToBackdrop(introImage);
     }
 
     if (config.header) {
@@ -119,6 +133,20 @@
       }
       if (config.buttons.explore && exploreButton) {
         setButtonLabel(exploreButton, config.buttons.explore);
+      }
+    }
+
+    if (config.intro && typeof config.intro === 'object') {
+      if (config.intro.label) {
+        setSlotText(introLabelSlot, config.intro.label);
+      }
+      if (config.intro.hint) {
+        setSlotText(introHintSlot, config.intro.hint);
+      }
+      if (config.intro.image && introImage) {
+        const resolvedIntroImage = resolveAssetPath(config.intro.image);
+        introImage.dataset.originalSrc = resolvedIntroImage;
+        introImage.src = withCacheBuster(resolvedIntroImage, landing.dataset.cacheBuster);
       }
     }
 
@@ -264,6 +292,20 @@
   }
 
   function handlePointerUnlock(event) {
+    const currentStage = landing.getAttribute('data-stage');
+    const isIntroTriggerEvent =
+      event &&
+      event.target &&
+      typeof event.target.closest === 'function' &&
+      event.target.closest('[data-role="intro-trigger"]');
+
+    if (
+      currentStage === 'intro' &&
+      !isIntroTriggerEvent
+    ) {
+      return;
+    }
+
     if (event && event.type === 'keydown') {
       const interactiveKeys = ['Enter', ' ', 'Spacebar'];
       if (!interactiveKeys.includes(event.key)) {
@@ -381,15 +423,76 @@
     });
   }
 
+  function setupIntro() {
+    if (!introOverlay || !introTrigger) {
+      if (!landing.dataset.stage || landing.dataset.stage === 'intro') {
+        landing.setAttribute('data-stage', 'one');
+      }
+      return Promise.resolve();
+    }
+
+    landing.setAttribute('data-stage', 'intro');
+
+    return new Promise((resolve) => {
+      let isActivated = false;
+      let activationTimer = null;
+
+      const finalize = () => {
+        if (activationTimer) {
+          window.clearTimeout(activationTimer);
+        }
+        landing.setAttribute('data-stage', 'one');
+        resolve();
+      };
+
+      const triggerActivation = (event) => {
+        if (isActivated) return;
+        isActivated = true;
+        if (event) {
+          event.preventDefault();
+        }
+        introTrigger.classList.add('is-armed');
+        if (typeof introTrigger.blur === 'function') {
+          introTrigger.blur();
+        }
+        landing.setAttribute('data-stage', 'intro-transition');
+        startBgm();
+
+        activationTimer = window.setTimeout(finalize, 3000);
+
+        introTrigger.removeEventListener('click', triggerActivation);
+        introTrigger.removeEventListener('keydown', handleKeyActivation);
+      };
+
+      const handleKeyActivation = (event) => {
+        const interactiveKeys = ['Enter', ' ', 'Spacebar'];
+        if (!interactiveKeys.includes(event.key)) {
+          return;
+        }
+        triggerActivation(event);
+      };
+
+      introTrigger.addEventListener('click', triggerActivation);
+      introTrigger.addEventListener('keydown', handleKeyActivation);
+    });
+  }
+
+  const introReady = setupIntro();
+
   const configPromise = configUrl ? fetchConfig(configUrl).then(applyConfig).catch(() => {}) : Promise.resolve();
 
   configPromise.finally(() => {
     if (bgm) {
       setupBgm();
-      if (bgm.dataset.autoplay === 'true') {
+      if (bgm.dataset.autoplay === 'true' && landing.getAttribute('data-stage') !== 'intro') {
         startBgm();
       }
     }
-    initialize();
+    introReady.then(() => {
+      if (bgm && bgm.dataset.autoplay === 'true' && !isBgmActive) {
+        startBgm();
+      }
+      initialize();
+    });
   });
 })();
