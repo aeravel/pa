@@ -111,13 +111,17 @@
 
     if (buttonToShow) {
       buttonToShow.classList.add('is-hidden');
-      window.setTimeout(() => {
-        buttonToShow.classList.remove('is-hidden');
-      }, 5000);
     }
 
     return new Promise((resolve) => {
-      typeText(text, resolve);
+      typeText(text, () => {
+        if (buttonToShow) {
+          window.requestAnimationFrame(() => {
+            buttonToShow.classList.remove('is-hidden');
+          });
+        }
+        resolve();
+      });
     });
   }
 

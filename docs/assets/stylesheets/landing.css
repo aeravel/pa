@@ -7,6 +7,7 @@
   --landing-button-secondary-bg: rgba(18, 26, 48, 0.86);
   --landing-background-primary: url("../images/landing-stage-one.svg");
   --landing-background-secondary: url("../images/landing-stage-two.svg");
+  --vn-frame-shape: polygon(0 0, 93% 0, 100% 14%, 100% 100%, 7% 100%, 0 86%);
 }
 
 html,
@@ -121,11 +122,19 @@ body {
 
 .vn-frame {
   position: relative;
-  background: linear-gradient(180deg, rgba(5, 9, 20, 0.88), rgba(8, 13, 30, 0.94));
-  border-radius: 24px;
-  border: 1px solid var(--landing-border);
+  background:
+    linear-gradient(190deg, rgba(6, 12, 28, 0.96), rgba(2, 6, 18, 0.98)) padding-box,
+    repeating-linear-gradient(
+        90deg,
+        rgba(72, 132, 235, 0.18) 0,
+        rgba(72, 132, 235, 0.18) 2px,
+        rgba(3, 7, 18, 0.2) 2px,
+        rgba(3, 7, 18, 0.2) 7px
+      )
+      border-box;
+  border: 1px solid rgba(106, 186, 255, 0.45);
   padding: clamp(1.8rem, 3.4vw, 2.6rem) clamp(2.3rem, 4.6vw, 3.4rem);
-  box-shadow: 0 22px 50px rgba(3, 8, 24, 0.7);
+  box-shadow: 0 26px 60px rgba(3, 10, 36, 0.74), inset 0 0 0 1px rgba(20, 48, 112, 0.45);
   backdrop-filter: blur(18px);
   display: flex;
   flex-direction: column;
@@ -133,37 +142,51 @@ body {
   min-height: clamp(20rem, 58vh, 32rem);
   width: 100%;
   max-width: min(1020px, 86vw);
+  overflow: hidden;
+  clip-path: var(--vn-frame-shape);
 }
 
 .vn-frame::before,
 .vn-frame::after {
   content: "";
   position: absolute;
-  inset: -18px;
-  border-radius: 32px;
-  border: 1px solid rgba(162, 206, 255, 0.16);
+  inset: -14px;
+  clip-path: var(--vn-frame-shape);
   pointer-events: none;
 }
 
 .vn-frame::after {
-  inset: -34px;
-  border: 1px solid rgba(46, 90, 175, 0.5);
-  opacity: 0.4;
+  inset: -26px;
+  border: 1px solid rgba(72, 138, 245, 0.42);
+  filter: drop-shadow(0 0 24px rgba(78, 144, 255, 0.45));
+  opacity: 0.65;
+}
+
+.vn-frame::before {
+  inset: -1px;
+  border: 1px solid rgba(124, 208, 255, 0.35);
+  background:
+    linear-gradient(135deg, rgba(89, 166, 255, 0.22), transparent 65%),
+    linear-gradient(305deg, rgba(255, 96, 198, 0.16), transparent 58%);
+  mix-blend-mode: screen;
 }
 
 .vn-frame__header {
   position: absolute;
   top: clamp(-2.6rem, -4vw, -2.1rem);
   left: clamp(2.2rem, 6vw, 3.1rem);
-  padding: 0.5rem 1.6rem;
-  background: linear-gradient(90deg, rgba(66, 135, 245, 0.9), rgba(131, 182, 255, 0.62));
+  padding: 0.55rem 2rem 0.55rem 1.9rem;
+  background:
+    linear-gradient(100deg, rgba(54, 132, 255, 0.92), rgba(134, 205, 255, 0.82)) padding-box,
+    linear-gradient(100deg, rgba(54, 132, 255, 0.92), rgba(134, 205, 255, 0.82)) border-box;
   color: #060910;
   font-size: 0.78rem;
   letter-spacing: 0.36em;
   text-transform: uppercase;
-  border-radius: 999px;
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 100%, 18px 100%);
   font-weight: 700;
-  box-shadow: 0 8px 20px rgba(38, 94, 205, 0.5);
+  box-shadow: 0 14px 30px rgba(38, 96, 205, 0.4), inset 0 -2px 12px rgba(16, 46, 120, 0.45);
+  border: 1px solid rgba(18, 58, 146, 0.45);
 }
 
 .vn-frame__body {
@@ -306,7 +329,10 @@ body {
 
   .vn-frame {
     padding: clamp(1.4rem, 6vw, 2rem);
-    border-radius: 20px;
+  }
+
+  .landing {
+    --vn-frame-shape: polygon(0 0, 96% 0, 100% 18%, 100% 100%, 12% 100%, 0 82%);
   }
 
   .vn-frame__header {
