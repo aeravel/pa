@@ -2,7 +2,7 @@
 title: RSC — начало истории
 ---
 
-<div class="landing" data-stage="one" data-config="assets/data/landing.json">
+<div class="landing" data-stage="one" data-config="assets/data/landing.json" data-cache-buster="1">
   <div class="landing__background landing__background--primary" aria-hidden="true">
     <img src="assets/images/landing-stage-one.svg" alt="" loading="eager" data-default-src="assets/images/landing-stage-one.svg" />
   </div>

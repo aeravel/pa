@@ -16,6 +16,13 @@
   const primaryBackdrop = landing.querySelector('.landing__background--primary img');
   const secondaryBackdrop = landing.querySelector('.landing__background--secondary img');
   const configUrl = landing.dataset.config;
+  const landingCacheKey = landing.dataset.cacheBuster || landing.dataset.cache || '';
+  if (landingCacheKey) {
+    landing.dataset.cacheBuster = landingCacheKey;
+  }
+
+  applyCacheBusterToBackdrop(primaryBackdrop);
+  applyCacheBusterToBackdrop(secondaryBackdrop);
 
   if (!stageOneText) return;
 
@@ -35,6 +42,37 @@
       return new URL(path, document.baseURI).toString();
     } catch (error) {
       return path;
+    }
+  }
+
+  function withCacheBuster(url, cacheKey) {
+    if (!url) return url;
+    const key = cacheKey ? String(cacheKey).trim() : '';
+    if (!key) return url;
+
+    const hasQuery = url.includes('?');
+    const separator = hasQuery ? '&' : '?';
+    return `${url}${separator}v=${encodeURIComponent(key)}`;
+  }
+
+  function applyCacheBusterToBackdrop(imageElement) {
+    if (!imageElement) return;
+
+    const cacheKey = landing.dataset.cacheBuster;
+    if (!cacheKey) return;
+
+    const defaultSrc =
+      imageElement.dataset.originalSrc ||
+      imageElement.getAttribute('data-default-src') ||
+      imageElement.getAttribute('src');
+
+    if (!defaultSrc) return;
+
+    const resolved = resolveAssetPath(defaultSrc);
+    imageElement.dataset.originalSrc = resolved;
+    const cached = withCacheBuster(resolved, cacheKey);
+    if (cached && imageElement.src !== cached) {
+      imageElement.src = cached;
     }
   }
 
@@ -59,6 +97,17 @@
 
   function applyConfig(config) {
     if (!config || typeof config !== 'object') return;
+
+    const cacheKey =
+      (typeof config.cacheBuster === 'string' && config.cacheBuster.trim()) ||
+      (typeof config.cacheBuster === 'number' ? String(config.cacheBuster) : '') ||
+      landingCacheKey;
+
+    if (cacheKey) {
+      landing.dataset.cacheBuster = cacheKey;
+      applyCacheBusterToBackdrop(primaryBackdrop);
+      applyCacheBusterToBackdrop(secondaryBackdrop);
+    }
 
     if (config.header) {
       applyHeader(config.header);
@@ -102,7 +151,8 @@
       const stageOneImage = stageOneConfig.image || stageOneConfig.backdrop;
       if (stageOneImage && primaryBackdrop) {
         const resolvedImage = resolveAssetPath(stageOneImage);
-        primaryBackdrop.src = resolvedImage;
+        primaryBackdrop.dataset.originalSrc = resolvedImage;
+        primaryBackdrop.src = withCacheBuster(resolvedImage, landing.dataset.cacheBuster);
       }
     }
 
@@ -114,7 +164,8 @@
       const stageTwoImage = stageTwoConfig.image || stageTwoConfig.backdrop;
       if (stageTwoImage && secondaryBackdrop) {
         const resolvedImage = resolveAssetPath(stageTwoImage);
-        secondaryBackdrop.src = resolvedImage;
+        secondaryBackdrop.dataset.originalSrc = resolvedImage;
+        secondaryBackdrop.src = withCacheBuster(resolvedImage, landing.dataset.cacheBuster);
       }
     }
 
@@ -124,8 +175,13 @@
       }
       if (config.audio.src) {
         const resolvedAudio = resolveAssetPath(config.audio.src);
+        const cachedAudio = withCacheBuster(resolvedAudio, landing.dataset.cacheBuster);
         bgm.dataset.src = resolvedAudio;
-        bgm.setAttribute('src', resolvedAudio);
+        bgm.dataset.cachedSrc = cachedAudio;
+        bgm.setAttribute('src', cachedAudio);
+      }
+      if (typeof config.audio.autoplay === 'boolean') {
+        bgm.dataset.autoplay = String(config.audio.autoplay);
       }
       setupBgm();
     }
@@ -158,11 +214,17 @@
       }
     }
 
-    const rawSrc = bgm.dataset.src || bgm.getAttribute('src');
+    const rawSrc = bgm.dataset.src || bgm.dataset.cachedSrc || bgm.getAttribute('src');
     const resolvedSrc = resolveAssetPath(rawSrc);
 
-    if (resolvedSrc && bgm.src !== resolvedSrc) {
-      bgm.src = resolvedSrc;
+    if (resolvedSrc) {
+      const cachedSrc = withCacheBuster(resolvedSrc, landing.dataset.cacheBuster);
+      if (bgm.dataset.cachedSrc !== cachedSrc) {
+        bgm.dataset.cachedSrc = cachedSrc;
+      }
+      if (bgm.src !== cachedSrc) {
+        bgm.src = cachedSrc;
+      }
     }
 
     if (bgm.readyState === 0) {
@@ -182,13 +244,33 @@
       playAttempt
         .then(() => {
           isBgmActive = true;
+          landing.removeEventListener('pointerdown', handlePointerUnlock);
+          landing.removeEventListener('pointerup', handlePointerUnlock);
+          landing.removeEventListener('touchstart', handlePointerUnlock);
+          landing.removeEventListener('keydown', handlePointerUnlock);
+          landing.removeEventListener('click', handlePointerUnlock);
         })
         .catch(() => {
           /* Игнорируем ограничения автозапуска. */
         });
     } else {
       isBgmActive = true;
+      landing.removeEventListener('pointerdown', handlePointerUnlock);
+      landing.removeEventListener('pointerup', handlePointerUnlock);
+      landing.removeEventListener('touchstart', handlePointerUnlock);
+      landing.removeEventListener('keydown', handlePointerUnlock);
+      landing.removeEventListener('click', handlePointerUnlock);
     }
+  }
+
+  function handlePointerUnlock(event) {
+    if (event && event.type === 'keydown') {
+      const interactiveKeys = ['Enter', ' ', 'Spacebar'];
+      if (!interactiveKeys.includes(event.key)) {
+        return;
+      }
+    }
+    startBgm();
   }
 
   function prepareBlock() {
@@ -288,21 +370,14 @@
   }
 
   if (bgm) {
-    const unlockEvents = [
-      { name: 'pointerdown', options: { once: true } },
-      { name: 'pointerup', options: { once: true } },
-      { name: 'touchstart', options: { once: true, passive: true } },
-      { name: 'keydown', options: { once: true } }
-    ];
+    landing.addEventListener('pointerdown', handlePointerUnlock);
+    landing.addEventListener('pointerup', handlePointerUnlock);
+    landing.addEventListener('touchstart', handlePointerUnlock, { passive: true });
+    landing.addEventListener('keydown', handlePointerUnlock);
+    landing.addEventListener('click', handlePointerUnlock);
 
-    unlockEvents.forEach(({ name, options }) => {
-      landing.addEventListener(
-        name,
-        () => {
-          startBgm();
-        },
-        options
-      );
+    bgm.addEventListener('error', () => {
+      isBgmActive = false;
     });
   }
 
@@ -311,6 +386,9 @@
   configPromise.finally(() => {
     if (bgm) {
       setupBgm();
+      if (bgm.dataset.autoplay === 'true') {
+        startBgm();
+      }
     }
     initialize();
   });

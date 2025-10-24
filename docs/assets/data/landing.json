@@ -1,8 +1,10 @@
 {
   "header": "RSC // BRIEFING",
+  "cacheBuster": "1",
   "audio": {
     "src": "assets/audio/landing-theme.mp3",
-    "volume": 0.6
+    "volume": 0.6,
+    "autoplay": true
   },
   "buttons": {
     "advance": "Подробнее об RSC",
