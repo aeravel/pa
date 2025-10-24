@@ -16,6 +16,7 @@
   const exploreButton = landing.querySelector('[data-action="explore"]');
   const exploreTarget = document.querySelector('#future-content');
   const docsSection = landing.querySelector('[data-role="docs"]');
+  const overlay = landing.querySelector('.landing__overlay');
   const docsNavButtons = docsSection
     ? Array.from(docsSection.querySelectorAll('[data-docs-target]'))
     : [];
@@ -469,6 +470,8 @@
   function showDocsSection() {
     if (!docsSection) return;
     docsSection.hidden = false;
+    docsSection.classList.add('is-visible');
+    docsSection.removeAttribute('aria-hidden');
     window.requestAnimationFrame(() => {
       docsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
@@ -488,17 +491,29 @@
 
   if (exploreButton) {
     exploreButton.addEventListener('click', () => {
+      if (exploreButton.disabled) return;
+
       if (docsSection) {
         exploreButton.classList.add('is-hidden');
         exploreButton.setAttribute('disabled', 'disabled');
-        landing.setAttribute('data-stage', 'docs');
+        landing.setAttribute('data-stage', 'transition');
+
         triggerGlitchTransition().then(() => {
+          if (overlay) {
+            overlay.classList.add('is-dismissed');
+          }
+
+          landing.setAttribute('data-stage', 'docs');
           showDocsSection();
+          setActiveDocsPanel('synopsis');
         });
       } else if (exploreTarget) {
+        exploreButton.classList.add('is-hidden');
+        exploreButton.setAttribute('disabled', 'disabled');
         exploreTarget.hidden = false;
         exploreTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+
       startBgm();
     });
   }
