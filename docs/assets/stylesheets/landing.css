@@ -11,18 +11,22 @@
 }
 
 html,
-body,
-.md-container,
-.md-main,
-.md-main__inner,
-.md-content,
-.md-content__inner {
-  height: 100%;
+body {
+  min-height: 100%;
 }
 
 body {
   background: #01040f;
   font-family: var(--landing-font);
+}
+
+body.landing-page .md-container,
+body.landing-page .md-main,
+body.landing-page .md-main__inner,
+body.landing-page .md-content,
+body.landing-page .md-content__inner {
+  min-height: 100vh;
+  height: auto;
 }
 
 .md-header,
@@ -67,7 +71,7 @@ body.landing-page .md-content__inner {
   justify-content: center;
   gap: clamp(2rem, 5vw, 3.4rem);
   padding: clamp(1.6rem, 4vw, 3.2rem);
-  overflow: hidden;
+  overflow: visible;
   color: var(--landing-text-color);
 }
 
