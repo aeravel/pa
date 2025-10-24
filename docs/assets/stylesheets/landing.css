@@ -5,8 +5,6 @@
   --landing-button-bg: rgba(56, 122, 255, 0.92);
   --landing-button-bg-hover: rgba(78, 148, 255, 1);
   --landing-button-secondary-bg: rgba(18, 26, 48, 0.86);
-  --landing-background-primary: url("../images/landing-stage-one.svg");
-  --landing-background-secondary: url("../images/landing-stage-two.svg");
   --vn-frame-shape: polygon(0 0, 93% 0, 100% 14%, 100% 100%, 7% 100%, 0 86%);
 }
 
@@ -77,11 +75,7 @@ body {
 .landing__background {
   position: fixed;
   inset: 0;
-  background-size: cover;
-  background-position: 50% 50%;
-  filter: brightness(0.85) saturate(110%);
-  transform: scale(1.04);
-  animation: landing-pan 140s linear infinite;
+  overflow: hidden;
   transition: opacity 1.4s ease-in-out;
   z-index: -3;
 }
@@ -93,13 +87,22 @@ body {
   background: linear-gradient(180deg, rgba(5, 7, 18, 0.32) 0%, rgba(2, 5, 14, 0.82) 65%, rgba(1, 4, 12, 0.92) 100%);
 }
 
+.landing__background img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  filter: brightness(0.85) saturate(110%);
+  transform: scale(1.04);
+  animation: landing-pan 140s linear infinite;
+}
+
 .landing__background--primary {
-  background-image: var(--landing-background-primary);
   opacity: 1;
 }
 
 .landing__background--secondary {
-  background-image: var(--landing-background-secondary);
   opacity: 0;
 }
 

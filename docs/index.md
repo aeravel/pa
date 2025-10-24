@@ -2,14 +2,26 @@
 title: RSC — начало истории
 ---
 
-<div class="landing" data-stage="one">
-  <div class="landing__background landing__background--primary" aria-hidden="true"></div>
-  <div class="landing__background landing__background--secondary" aria-hidden="true"></div>
-  <audio class="landing__bgm" data-role="bgm" data-src="assets/audio/intro.mp3" data-volume="0.6" loop preload="auto"></audio>
+<div class="landing" data-stage="one" data-config="assets/data/landing.json">
+  <div class="landing__background landing__background--primary" aria-hidden="true">
+    <img src="assets/images/landing-stage-one.svg" alt="" loading="eager" data-default-src="assets/images/landing-stage-one.svg" />
+  </div>
+  <div class="landing__background landing__background--secondary" aria-hidden="true">
+    <img src="assets/images/landing-stage-two.svg" alt="" loading="lazy" data-default-src="assets/images/landing-stage-two.svg" />
+  </div>
+  <audio
+    class="landing__bgm"
+    data-role="bgm"
+    src="assets/audio/landing-theme.mp3"
+    data-src="assets/audio/landing-theme.mp3"
+    data-volume="0.6"
+    loop
+    preload="auto"
+  ></audio>
 
   <div class="landing__overlay">
-    <div class="vn-frame">
-      <span class="vn-frame__header">RSC // BRIEFING</span>
+    <div class="vn-frame" data-header="RSC // BRIEFING">
+      <span class="vn-frame__header" data-slot="header">RSC // BRIEFING</span>
       <div
         class="vn-frame__body"
         data-typewriter
@@ -18,10 +30,20 @@ title: RSC — начало истории
       ></div>
 
       <div class="landing__actions">
-        <button type="button" class="landing__button landing__button--primary is-hidden" data-action="advance">
+        <button
+          type="button"
+          class="landing__button landing__button--primary is-hidden"
+          data-action="advance"
+          data-default-label="Подробнее об RSC"
+        >
           Подробнее об RSC
         </button>
-        <button type="button" class="landing__button landing__button--secondary is-hidden" data-action="explore">
+        <button
+          type="button"
+          class="landing__button landing__button--secondary is-hidden"
+          data-action="explore"
+          data-default-label="Я хочу знать больше"
+        >
           Я хочу знать больше
         </button>
       </div>
