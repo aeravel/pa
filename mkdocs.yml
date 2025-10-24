@@ -1,0 +1,14 @@
+site_name: RSC Codex
+site_url: https://example.com
+lang: ru
+theme:
+  name: material
+  language: ru
+  features:
+    - navigation.tabs
+nav:
+  - Главная: index.md
+extra_css:
+  - assets/stylesheets/landing.css
+extra_javascript:
+  - assets/javascripts/landing.js
