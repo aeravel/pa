@@ -27,6 +27,12 @@
   const docsPanels = docsSection
     ? Array.from(docsSection.querySelectorAll('[data-docs-panel]'))
     : [];
+  const docsPathSlot = docsSection
+    ? docsSection.querySelector('[data-slot="docs-path"]')
+    : null;
+  const docsPathRoot = docsPathSlot
+    ? (docsPathSlot.dataset.root || '').trim()
+    : '';
   const glitchLayer = landing.querySelector('[data-role="glitch"]');
   const bgm = landing.querySelector('[data-role="bgm"]');
   const headerFrame = landing.querySelector('[data-header]');
@@ -436,6 +442,21 @@
         panel.setAttribute('hidden', '');
       }
     });
+
+    if (docsPathSlot) {
+      const activeButton = docsNavButtons.find((button) => {
+        return normalizeDocsId(button.dataset.docsTarget) === resolvedId;
+      });
+
+      if (activeButton) {
+        const label = activeButton.textContent ? activeButton.textContent.trim() : '';
+        if (label) {
+          docsPathSlot.textContent = docsPathRoot
+            ? `${docsPathRoot} ▸ ${label}`
+            : label;
+        }
+      }
+    }
   }
 
   function prepareDocs() {
