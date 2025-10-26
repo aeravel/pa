@@ -86,38 +86,78 @@ title: RSC — начало истории
   </div>
 
   <section id="future-content" class="landing-docs" data-role="docs" hidden aria-hidden="true">
-    <div class="landing-docs__frame">
-      <aside class="landing-docs__nav" aria-label="Разделы досье RSC">
-        <button type="button" class="landing-docs__tab is-active" data-docs-target="synopsis" aria-selected="true">
-          Синопсис
-        </button>
-        <button type="button" class="landing-docs__tab" data-docs-target="prologue" aria-selected="false">
-          Пролог
-        </button>
-        <button type="button" class="landing-docs__tab" data-docs-target="world" aria-selected="false">
-          Мир
-        </button>
-        <button type="button" class="landing-docs__tab" data-docs-target="characters" aria-selected="false">
-          Персонажи
-        </button>
-      </aside>
-      <div class="landing-docs__content">
-        <article class="landing-docs__panel is-active" data-docs-panel="synopsis">
-          <h2>Синопсис</h2>
-          <p>Здесь должен быть синопсис.</p>
-        </article>
-        <article class="landing-docs__panel" data-docs-panel="prologue" hidden>
-          <h2>Пролог</h2>
-          <p>Здесь должен быть пролог.</p>
-        </article>
-        <article class="landing-docs__panel" data-docs-panel="world" hidden>
-          <h2>Мир</h2>
-          <p>Здесь должно быть описание мира.</p>
-        </article>
-        <article class="landing-docs__panel" data-docs-panel="characters" hidden>
-          <h2>Персонажи</h2>
-          <p>Здесь должно быть описание персонажей.</p>
-        </article>
+    <div class="landing-docs__window" role="region" aria-label="Рабочий стол RSC">
+      <header class="landing-docs__titlebar">
+        <div class="landing-docs__title">
+          <span class="landing-docs__title-icon" aria-hidden="true"></span>
+          <span class="landing-docs__title-label">RSC // ARCHIVE EXPLORER</span>
+        </div>
+        <div class="landing-docs__window-controls" aria-hidden="true">
+          <span class="landing-docs__window-dot"></span>
+          <span class="landing-docs__window-dot"></span>
+          <span class="landing-docs__window-dot"></span>
+        </div>
+      </header>
+      <div class="landing-docs__toolbar" role="toolbar" aria-label="Панель управления архивом">
+        <div class="landing-docs__toolbar-group">
+          <button type="button" class="landing-docs__toolbar-button" disabled>
+            <span aria-hidden="true">◀</span>
+            <span class="sr-only">Назад</span>
+          </button>
+          <button type="button" class="landing-docs__toolbar-button" disabled>
+            <span aria-hidden="true">▶</span>
+            <span class="sr-only">Вперёд</span>
+          </button>
+        </div>
+        <div class="landing-docs__address-bar" role="presentation">
+          <span class="landing-docs__address-label">Путь</span>
+          <span class="landing-docs__address-value" data-slot="docs-path">RSC &gt; Документация</span>
+        </div>
+        <div class="landing-docs__toolbar-group landing-docs__toolbar-group--actions">
+          <button type="button" class="landing-docs__toolbar-button" disabled>
+            <span aria-hidden="true">☰</span>
+            <span class="sr-only">Опции</span>
+          </button>
+        </div>
+      </div>
+      <div class="landing-docs__frame">
+        <aside class="landing-docs__nav" aria-label="Разделы досье RSC">
+          <span class="landing-docs__nav-label">Разделы</span>
+          <button type="button" class="landing-docs__tab is-active" data-docs-target="synopsis" aria-selected="true">
+            <span class="landing-docs__tab-bullet" aria-hidden="true"></span>
+            Синопсис
+          </button>
+          <button type="button" class="landing-docs__tab" data-docs-target="prologue" aria-selected="false">
+            <span class="landing-docs__tab-bullet" aria-hidden="true"></span>
+            Пролог
+          </button>
+          <button type="button" class="landing-docs__tab" data-docs-target="world" aria-selected="false">
+            <span class="landing-docs__tab-bullet" aria-hidden="true"></span>
+            Мир
+          </button>
+          <button type="button" class="landing-docs__tab" data-docs-target="characters" aria-selected="false">
+            <span class="landing-docs__tab-bullet" aria-hidden="true"></span>
+            Персонажи
+          </button>
+        </aside>
+        <div class="landing-docs__content" role="presentation">
+          <article class="landing-docs__panel is-active" data-docs-panel="synopsis">
+            <h2>Синопсис</h2>
+            <p>Здесь должен быть синопсис.</p>
+          </article>
+          <article class="landing-docs__panel" data-docs-panel="prologue" hidden>
+            <h2>Пролог</h2>
+            <p>Здесь должен быть пролог.</p>
+          </article>
+          <article class="landing-docs__panel" data-docs-panel="world" hidden>
+            <h2>Мир</h2>
+            <p>Здесь должно быть описание мира.</p>
+          </article>
+          <article class="landing-docs__panel" data-docs-panel="characters" hidden>
+            <h2>Персонажи</h2>
+            <p>Здесь должно быть описание персонажей.</p>
+          </article>
+        </div>
       </div>
     </div>
   </section>
