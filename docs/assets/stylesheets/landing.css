@@ -66,18 +66,18 @@ body.landing-page .md-content__inner {
   align-items: center;
   justify-content: center;
   gap: clamp(2rem, 5vw, 3.4rem);
-  padding: clamp(1.6rem, 4vw, 3.2rem);
+  padding: clamp(3rem, 6vw, 4.5rem) clamp(1.6rem, 4vw, 3.2rem);
+  overflow: visible;
   overflow-x: hidden;
-  overflow-y: auto;
   color: var(--landing-text-color);
 }
 
+.landing[data-stage="transition"],
 .landing[data-stage="docs"] {
   justify-content: flex-start;
   gap: clamp(2.4rem, 6vw, 3.8rem);
   padding-top: clamp(3rem, 8vw, 5rem);
   padding-bottom: clamp(2rem, 6vw, 4rem);
-  overflow: visible;
 }
 
 .landing::after {
@@ -469,10 +469,28 @@ body.landing-page .md-content__inner {
   letter-spacing: 0.01em;
   color: var(--landing-text-color);
   min-height: clamp(12rem, 32vh, 16rem);
+  max-height: clamp(18rem, 52vh, 26rem);
   flex: 1 1 auto;
   width: 100%;
   margin-inline: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
   overflow-wrap: anywhere;
+  padding-right: clamp(0.35rem, 1vw, 0.75rem);
+  scroll-behavior: smooth;
+}
+
+.vn-frame__body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.vn-frame__body::-webkit-scrollbar-thumb {
+  background: rgba(116, 186, 255, 0.45);
+  border-radius: 8px;
+}
+
+.vn-frame__body::-webkit-scrollbar-track {
+  background: rgba(8, 16, 32, 0.45);
 }
 
 .vn-block__cursor {
